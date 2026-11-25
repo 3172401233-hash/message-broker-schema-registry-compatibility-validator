@@ -1,0 +1,13 @@
+{
+  "name": "message-broker-schema-registry-compatibility-validator",
+  "version": "1.0.0",
+  "description": "验证消息 schema 兼容性和滚动发布（本地模型，无外部注册中心依赖）",
+  "type": "module",
+  "engines": {
+    "node": ">=24.16.0"
+  },
+  "scripts": {
+    "test": "node --test",
+    "cli": "node src/cli.js"
+  }
+}

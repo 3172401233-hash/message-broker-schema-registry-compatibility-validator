@@ -1,0 +1,46 @@
+{
+  "subject": "user-events",
+  "schemas": [
+    {
+      "version": 1,
+      "schema": {
+        "type": "record",
+        "fields": [
+          { "name": "id", "type": "string", "required": true },
+          { "name": "email", "type": "string", "required": false },
+          { "name": "legacy_flag", "type": "string", "required": false }
+        ]
+      }
+    },
+    {
+      "version": 2,
+      "schema": {
+        "type": "record",
+        "fields": [
+          { "name": "id", "type": "string", "required": true },
+          { "name": "email", "type": "string", "required": false },
+          { "name": "legacy_flag", "type": "string", "required": false },
+          { "name": "nickname", "type": "string", "required": false }
+        ]
+      }
+    }
+  ],
+  "compatibilityMode": "BACKWARD",
+  "producerVersion": 2,
+  "candidate": {
+    "version": 3,
+    "schema": {
+      "type": "record",
+      "fields": [
+        { "name": "id", "type": "string", "required": true },
+        { "name": "email", "type": "string", "required": false },
+        { "name": "nickname", "type": "string", "required": false }
+      ]
+    }
+  },
+  "requiredFields": ["id"],
+  "consumers": [
+    { "id": "consumer-a", "version": 2, "rolloutStatus": "complete" },
+    { "id": "consumer-b", "version": 1, "rolloutStatus": "in_progress" }
+  ]
+}
